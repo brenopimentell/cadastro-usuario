@@ -2,6 +2,7 @@ import sqlite3
 
 conexao = sqlite3.connect("Clientes.db")
 
+
 cursor = conexao.cursor() 
 
 cursor.execute(

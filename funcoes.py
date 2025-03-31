@@ -5,6 +5,9 @@ def conectarBD():
     return conexao
 
 def inserirDados(nome, telefone, endereco):
+    if not nome or not telefone or not endereco:
+        raise ValueError("Todos os campos devem ser preenchidos")
+    
     conexao = conectarBD()
     cursor = conexao.cursor()
     cursor.execute("INSERT INTO Clientes(nome, telefone, endereco) VALUES(?, ?, ?)",(nome, telefone, endereco))

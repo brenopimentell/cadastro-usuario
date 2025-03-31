@@ -8,8 +8,12 @@ telefone = st.text_input("Digite seu número de telefone: ")
 endereco = st.text_input("Digite o seu endereço: ")
 
 if st.button("Adicionar cliente"):
-    funcoes.inserirDados(nome, telefone, endereco)
-    st.success("Cliente adicionado com sucesso!")
+    try:
+        funcoes.inserirDados(nome, telefone, endereco)
+        st.success("Cliente adicionado com sucesso!")
+    except Exception as e:
+        st.error(f"Erro ao adicionar cliente: {e}")
+
 
 if st.button("Listar clientes"):
     dados = funcoes.listarDados()
